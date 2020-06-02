@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_example/instagram_ui_clone/common/utils.dart';
+import 'package:flutter_example/instagram_ui_clone/data/models/post.dart';
+import 'package:flutter_example/instagram_ui_clone/data/models/story.dart';
 import 'package:flutter_example/instagram_ui_clone/widgets/insta_app_bar.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 
 class FeedScreen extends StatelessWidget {
-  const FeedScreen({Key key}) : super(key: key);
+  final Future<List<Story>> futureListOfStory;
+  final Future<List<Post>> futureListOfPost;
+  const FeedScreen({
+    Key key,
+    @required this.futureListOfStory,
+    @required this.futureListOfPost,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,48 +20,76 @@ class FeedScreen extends StatelessWidget {
       appBar: InstaAppBar(
         height: 65,
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              height: 98,
-              color: Theme.of(context).primaryColorDark,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  _storyAvatar(height: 98, width: 98),
-                  _storyAvatar(height: 98, width: 98),
-                  _storyAvatar(height: 98, width: 98),
-                  _storyAvatar(height: 98, width: 98),
-                  _storyAvatar(height: 98, width: 98),
-                  _storyAvatar(height: 98, width: 98),
-                  _storyAvatar(height: 98, width: 98),
-                  _storyAvatar(height: 98, width: 98),
-                  _storyAvatar(height: 98, width: 98),
-                ],
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        color: Theme.of(context).primaryColorDark,
+        child: ListView.builder(
+          shrinkWrap: true,
+          itemCount: 2,
+          itemBuilder: (context, index) {
+            if (index == 0) {
+              return Container(
+                height: 98,
+                color: Theme.of(context).primaryColorDark,
+                child: FutureBuilder(
+                  future: futureListOfStory,
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      List<Story> _storyList = snapshot.data;
+                      return ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        shrinkWrap: true,
+                        itemCount: _storyList.length,
+                        itemBuilder: (context, index) {
+                          return _storyAvatar(
+                            height: 98,
+                            width: 98,
+                            story: _storyList.elementAt(index),
+                          );
+                        },
+                      );
+                    } else if (snapshot.hasError) {
+                      print('error in Snapshot');
+                      return Text('Error occured');
+                    } else {
+                      return CircularProgressIndicator();
+                    }
+                  },
+                ),
+              );
+            }
+            return Container(
+              child: FutureBuilder(
+                future: futureListOfPost,
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    List<Post> _postList = snapshot.data;
+                    return ListView.builder(
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemCount: _postList.length,
+                      itemBuilder: (context, index) {
+                        return _postWidget(post: _postList.elementAt(index));
+                      },
+                    );
+                  }
+                  return CircularProgressIndicator();
+                },
               ),
-            ),
-            Container(
-              height: MediaQuery.of(context).size.height - 65 - 98 - 56,
-              color: Theme.of(context).primaryColorDark,
-              child: ListView(
-                children: [
-                  _postWidget(),
-                  _postWidget(),
-                  _postWidget(),
-                ],
-              ),
-            ),
-          ],
+            );
+          },
         ),
       ),
     );
   }
 
-  Widget _postWidget() {
+  Widget _postWidget({@required Post post}) {
     return Container(
       height: 500,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
             flex: 1,
@@ -64,8 +101,7 @@ class FeedScreen extends StatelessWidget {
                   Expanded(
                     flex: 1,
                     child: CircleAvatar(
-                      backgroundImage: NetworkImage(
-                          'https://images.unsplash.com/photo-1514846326710-096e4a8035e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'),
+                      backgroundImage: NetworkImage(post.profileImageUrl),
                     ),
                   ),
                   Expanded(
@@ -73,7 +109,7 @@ class FeedScreen extends StatelessWidget {
                     child: Padding(
                         padding: EdgeInsets.symmetric(horizontal: 10),
                         child: Text(
-                          'routineofnepalbanda',
+                          post.username,
                           style: TextStyle(
                               color: Colors.white, fontWeight: FontWeight.bold),
                         )),
@@ -95,8 +131,7 @@ class FeedScreen extends StatelessWidget {
               height: double.infinity,
               width: double.infinity,
               child: Image(
-                image: NetworkImage(
-                    'https://images.unsplash.com/photo-1509460913899-515f1df34fea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'),
+                image: NetworkImage(post.postMediaUrl),
                 fit: BoxFit.cover,
               ),
             ),
@@ -112,7 +147,7 @@ class FeedScreen extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 8),
                         child: Icon(
-                          Feather.heart,
+                          post.isLiked ? Icons.favorite : Icons.favorite_border,
                           color: Colors.white,
                           size: 28,
                         ),
@@ -136,7 +171,9 @@ class FeedScreen extends StatelessWidget {
                     ],
                   ),
                   Icon(
-                    Feather.bookmark,
+                    post.isSaved
+                        ? FontAwesome.bookmark
+                        : FontAwesome.bookmark_o,
                     color: Colors.white,
                     size: 28,
                   ),
@@ -153,21 +190,20 @@ class FeedScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('8,513 likes',
+                    Text('${post.likeCount} likes',
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                         )),
                     RichText(
                       text: TextSpan(
-                        text: 'routineofnepalbanda',
+                        text: post.username,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                         children: [
                           TextSpan(
-                            text:
-                                ' Nepal Army completed the making of quarantine sites (Almost 68 beds) in the jungle of Doti .. more',
+                            text: ' ${post.postCaption}',
                             style: TextStyle(
                               fontWeight: FontWeight.normal,
                             ),
@@ -176,13 +212,13 @@ class FeedScreen extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      'View all 15 comments',
+                      'View all ${post.commentCount} comments',
                       style: TextStyle(
                         color: Colors.grey[500],
                       ),
                     ),
                     Text(
-                      '37 minutes ago',
+                      '${Utils.getTimeDifference(post.postCreationDate)}',
                       style: TextStyle(color: Colors.grey[500]),
                     )
                   ],
@@ -198,6 +234,7 @@ class FeedScreen extends StatelessWidget {
   Widget _storyAvatar({
     @required double height,
     @required double width,
+    @required Story story,
   }) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 7.5),
@@ -221,7 +258,7 @@ class FeedScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           border: Border.all(
-                            color: Colors.red,
+                            color: story.isSeen ? Colors.grey[500] : Colors.red,
                             width: 3,
                           )),
                     ),
@@ -236,8 +273,7 @@ class FeedScreen extends StatelessWidget {
                         shape: BoxShape.circle,
                       ),
                       child: CircleAvatar(
-                        backgroundImage: NetworkImage(
-                            'https://images.unsplash.com/photo-1568967729548-e3dbad3d37e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'),
+                        backgroundImage: NetworkImage(story.imageUrl),
                       ),
                     ),
                   ),
@@ -246,7 +282,7 @@ class FeedScreen extends StatelessWidget {
             ),
           ),
           Text(
-            'Helloaaaaaaaaaaaaaaa',
+            story.username,
             style: TextStyle(color: Colors.white),
             overflow: TextOverflow.ellipsis,
           )

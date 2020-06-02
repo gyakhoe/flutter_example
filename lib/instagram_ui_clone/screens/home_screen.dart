@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_example/instagram_ui_clone/data/models/post.dart';
+import 'package:flutter_example/instagram_ui_clone/data/models/story.dart';
+import 'package:flutter_example/instagram_ui_clone/data/repositories/feed_repo.dart';
 import 'package:flutter_example/instagram_ui_clone/screens/activity_screen.dart';
 import 'package:flutter_example/instagram_ui_clone/screens/add_post_screen.dart';
 import 'package:flutter_example/instagram_ui_clone/screens/explore_screen.dart';
@@ -14,15 +17,29 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int pageIndex = 0;
-  var pages = [
-    FeedScreen(),
-    ExploreScreen(),
-    AddPostScreen(),
-    ActivityScreen(),
-    ProfileScreen(),
-  ];
+  Future<List<Story>> _futureListOfStory;
+  Future<List<Post>> _futureListOfPost;
+
+  @override
+  void initState() {
+    super.initState();
+    _futureListOfStory = FeedRepo.getFutureListOfStoryFromJson();
+    _futureListOfPost = FeedRepo.getFutureListOfPostFromJson();
+  }
+
   @override
   Widget build(BuildContext context) {
+    var pages = [
+      FeedScreen(
+        futureListOfStory: _futureListOfStory,
+        futureListOfPost: _futureListOfPost,
+      ),
+      ExploreScreen(),
+      AddPostScreen(),
+      ActivityScreen(),
+      ProfileScreen(),
+    ];
+
     return Scaffold(
       body: pages[pageIndex],
       bottomNavigationBar: BottomNavigationBar(
