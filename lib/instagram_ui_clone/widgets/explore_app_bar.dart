@@ -13,118 +13,124 @@ class ExploreAppBar extends StatelessWidget implements PreferredSizeWidget {
     return Container(
       height: height,
       color: Theme.of(context).primaryColor,
-      padding: EdgeInsets.only(top: 10),
-      child: Column(
+      child: Container(
+        margin: EdgeInsets.only(top: 20),
+        height: height - 20,
+        child: Column(
+          children: [
+            _searchBarContainer(context),
+            _exploreOptionList(context),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _searchBarContainer(BuildContext context) {
+    return Container(
+      height: (height - 20) / 2,
+      padding: EdgeInsets.symmetric(horizontal: 10),
+      child: Row(
         children: [
           Container(
-            margin: EdgeInsets.only(top: 10),
-            height: height - 20,
-            child: Column(
-              children: [
-                Container(
-                  height: (height - 20) / 2,
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  child: Row(
-                    children: [
-                      Container(
-                        height: 40,
-                        padding: EdgeInsets.only(left: 5),
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).primaryColorLight,
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(10),
-                            topLeft: Radius.circular(10),
-                          ),
-                        ),
-                        child: Icon(
-                          Icons.search,
-                          color: Colors.grey[600],
-                        ),
-                      ),
-                      Container(
-                        height: 40,
-                        width: 335,
-                        decoration: BoxDecoration(
-                            color: Theme.of(context).primaryColorLight,
-                            borderRadius: BorderRadius.only(
-                              bottomRight: Radius.circular(10),
-                              topRight: Radius.circular(10),
-                            )),
-                        child: TextField(
-                          decoration: InputDecoration(
-                            hintText: 'Search',
-                            hintStyle: TextStyle(
-                              color: Colors.grey[600],
-                            ),
-                            border: OutlineInputBorder(
-                              borderSide: BorderSide.none,
-                              borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(10),
-                                bottomRight: Radius.circular(10),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Icon(AntDesign.scan1),
-                    ],
-                  ),
-                ),
-                Container(
-                  height: (height - 20) / 2,
-                  child: ListView(
-                    shrinkWrap: true,
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      SizedBox(
-                        width: 10,
-                      ),
-                      _exploreTiles(
-                        icon: Feather.tv,
-                        title: 'IGTV',
-                        context: context,
-                      ),
-                      _exploreTiles(
-                        icon: Feather.shopping_bag,
-                        title: 'Shop',
-                        context: context,
-                      ),
-                      _exploreTiles(
-                        title: 'Decor',
-                        context: context,
-                      ),
-                      _exploreTiles(
-                        title: 'Travel',
-                        context: context,
-                      ),
-                      _exploreTiles(
-                        title: 'Architecture',
-                        context: context,
-                      ),
-                      _exploreTiles(
-                        title: 'Food',
-                        context: context,
-                      ),
-                      _exploreTiles(
-                        title: 'Art',
-                        context: context,
-                      ),
-                      _exploreTiles(
-                        title: 'Style',
-                        context: context,
-                      ),
-                      _exploreTiles(
-                        title: 'TV & Movies',
-                        context: context,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+            height: 40,
+            padding: EdgeInsets.only(left: 5),
+            decoration: BoxDecoration(
+              color: Theme.of(context).primaryColorLight,
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(10),
+                topLeft: Radius.circular(10),
+              ),
             ),
+            child: Icon(
+              Icons.search,
+              color: Colors.grey[600],
+            ),
+          ),
+          Container(
+            height: 40,
+            width: 335,
+            decoration: BoxDecoration(
+                color: Theme.of(context).primaryColorLight,
+                borderRadius: BorderRadius.only(
+                  bottomRight: Radius.circular(10),
+                  topRight: Radius.circular(10),
+                )),
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: 'Search',
+                hintStyle: TextStyle(
+                  color: Colors.grey[600],
+                ),
+                border: OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(10),
+                    bottomRight: Radius.circular(10),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 5,
+          ),
+          Icon(
+            AntDesign.scan1,
+            color: Colors.white,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _exploreOptionList(BuildContext context) {
+    return Container(
+      height: (height - 20) / 2,
+      child: ListView(
+        shrinkWrap: true,
+        scrollDirection: Axis.horizontal,
+        children: [
+          SizedBox(
+            width: 10,
+          ),
+          _exploreTiles(
+            icon: Feather.tv,
+            title: 'IGTV',
+            context: context,
+          ),
+          _exploreTiles(
+            icon: Feather.shopping_bag,
+            title: 'Shop',
+            context: context,
+          ),
+          _exploreTiles(
+            title: 'Decor',
+            context: context,
+          ),
+          _exploreTiles(
+            title: 'Travel',
+            context: context,
+          ),
+          _exploreTiles(
+            title: 'Architecture',
+            context: context,
+          ),
+          _exploreTiles(
+            title: 'Food',
+            context: context,
+          ),
+          _exploreTiles(
+            title: 'Art',
+            context: context,
+          ),
+          _exploreTiles(
+            title: 'Style',
+            context: context,
+          ),
+          _exploreTiles(
+            title: 'TV & Movies',
+            context: context,
           ),
         ],
       ),

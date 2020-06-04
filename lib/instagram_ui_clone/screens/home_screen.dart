@@ -7,6 +7,7 @@ import 'package:flutter_example/instagram_ui_clone/screens/add_post_screen.dart'
 import 'package:flutter_example/instagram_ui_clone/screens/explore_screen.dart';
 import 'package:flutter_example/instagram_ui_clone/screens/feed_screen.dart';
 import 'package:flutter_example/instagram_ui_clone/screens/profile_screen.dart';
+import 'package:flutter_statusbar_manager/flutter_statusbar_manager.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key}) : super(key: key);
@@ -48,7 +49,18 @@ class _HomeScreenState extends State<HomeScreen> {
         showUnselectedLabels: false,
         currentIndex: pageIndex,
         onTap: (index) {
-          setState(() => pageIndex = index);
+          if (index == 2) {
+            FlutterStatusbarManager.setHidden(true)
+                .then((_) => Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return AddPostScreen();
+                      },
+                    )));
+          } else {
+            setState(() {
+              pageIndex = index;
+            });
+          }
         },
         backgroundColor: Theme.of(context).primaryColor,
         selectedItemColor: Colors.white,
