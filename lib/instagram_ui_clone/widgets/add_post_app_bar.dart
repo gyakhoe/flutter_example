@@ -5,10 +5,12 @@ import 'package:flutter_statusbar_manager/flutter_statusbar_manager.dart';
 
 class AddPostAppBar extends StatelessWidget implements PreferredSizeWidget {
   final double height;
+  final String screenName;
 
   const AddPostAppBar({
     Key key,
     @required this.height,
+    @required this.screenName,
   }) : super(key: key);
 
   @override
@@ -28,43 +30,49 @@ class AddPostAppBar extends StatelessWidget implements PreferredSizeWidget {
               ),
             ),
             onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => HomeScreen(),
-                  ));
+              Navigator.pop(context);
               FlutterStatusbarManager.setHidden(false);
             },
           ),
           FlatButton(
-            child: Row(
-              children: [
-                Text(
-                  'Recent',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+            child: screenName == 'gallery'
+                ? Row(
+                    children: [
+                      Text(
+                        'Recent',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Icon(
+                        Ionicons.ios_arrow_down,
+                        color: Colors.white,
+                      )
+                    ],
+                  )
+                : Text(
+                    screenName == 'camera' ? 'Photo' : 'Video',
+                    style: TextStyle(fontSize: 18, color: Colors.white),
                   ),
-                ),
-                Icon(
-                  Ionicons.ios_arrow_down,
-                  color: Colors.white,
+            onPressed: () {},
+          ),
+          screenName == 'gallery'
+              ? FlatButton(
+                  child: Text(
+                    '   Next',
+                    style: TextStyle(
+                      color: Theme.of(context).primaryColorLight,
+                      fontSize: 18,
+                    ),
+                  ),
+                  onPressed: () {},
                 )
-              ],
-            ),
-            onPressed: () {},
-          ),
-          FlatButton(
-            child: Text(
-              '   Next',
-              style: TextStyle(
-                color: Theme.of(context).primaryColorLight,
-                fontSize: 18,
-              ),
-            ),
-            onPressed: () {},
-          ),
+              : FlatButton(
+                  child: Container(),
+                  onPressed: () {},
+                ),
         ],
       ),
     );
