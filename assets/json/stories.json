@@ -1,0 +1,85 @@
+{
+  "stories": [
+    {
+      "username": "Princess",
+      "imageUrl": "https://images.unsplash.com/photo-1568967729548-e3dbad3d37e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "isSeen": false
+    },
+    {
+      "username": "Tomasa",
+      "imageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "isSeen": false
+    },
+    {
+      "username": "Joanny",
+      "imageUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "isSeen": false
+    },
+
+    {
+      "username": "Albertha",
+      "imageUrl": "https://images.unsplash.com/photo-1557296387-5358ad7997bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=694&q=80",
+      "isSeen": false
+    },
+    {
+      "username": "Abdiel",
+      "imageUrl": "https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=656&q=80",
+      "isSeen": false
+    },
+    {
+      "username": "Cali",
+      "imageUrl": "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "isSeen": false
+    },
+    {
+      "username": "Macy",
+      "imageUrl": "https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=633&q=80",
+      "isSeen": false
+    },
+    {
+      "username": "Alison",
+      "imageUrl": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+      "isSeen": false
+    },
+    {
+      "username": "Lawrence",
+      "imageUrl": "https://images.unsplash.com/photo-1509460913899-515f1df34fea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "isSeen": false
+    },
+    {
+      "username": "Rashad",
+      "imageUrl": "https://images.unsplash.com/flagged/photo-1531889236320-35bcb7d1a5fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+      "isSeen": false
+    },
+    {
+      "username": "Stephanie",
+      "imageUrl": "https://images.unsplash.com/photo-1521146764736-56c929d59c83?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "isSeen": false
+    },
+    {
+      "username": "Imelda",
+      "imageUrl": "https://images.unsplash.com/photo-1508184964240-ee96bb9677a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+      "isSeen": false
+    },
+    {
+      "username": "Angeline",
+      "imageUrl": "https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=702&q=80",
+      "isSeen": false
+    },
+    {
+      "username": "Elza",
+      "imageUrl": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "isSeen": true
+    },
+    {
+      "username": "Gail",
+      "imageUrl": "https://images.unsplash.com/photo-1542131597-a4390333d136?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "isSeen": true
+    },
+    {
+      "username": "Kavon",
+      "imageUrl": "https://images.unsplash.com/photo-1514846326710-096e4a8035e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "isSeen": true
+    }
+  ]
+}

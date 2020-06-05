@@ -1,0 +1,114 @@
+{
+  "posts": [
+    {
+      "username": "Ulises",
+      "profileImageUrl": "https://images.unsplash.com/photo-1568967729548-e3dbad3d37e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "postMediaUrl": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "isLiked": true,
+      "isSaved": false,
+      "likeCount": 1000,
+      "postCaption": "Sequi qui minima dolores aut.",
+      "commentCount": 80,
+      "postCreationDate": 1591091160201
+    },
+    {
+      "username": "Isidro",
+      "profileImageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "postMediaUrl": "https://images.unsplash.com/photo-1490077476659-095159692ab5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1033&q=80",
+      "isLiked": false,
+      "isSaved": true,
+      "likeCount": 500,
+      "postCaption": "Natus aliquid delectus.",
+      "commentCount": 50,
+      "postCreationDate": 1591091160201
+    },
+    {
+      "username": "Yazmin",
+      "profileImageUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "postMediaUrl": "https://images.unsplash.com/photo-1507617470622-e254a32975d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "isLiked": true,
+      "isSaved": true,
+      "likeCount": 200,
+      "postCaption": "In officiis consectetur ducimus harum ut aut.",
+      "commentCount": 80,
+      "postCreationDate": 1591091160201
+    },
+    {
+      "username": "Letha",
+      "profileImageUrl": "https://images.unsplash.com/photo-1557296387-5358ad7997bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=694&q=80",
+      "postMediaUrl": "https://images.unsplash.com/photo-1500111709600-7761aa8216c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+      "isLiked": false,
+      "isSaved": false,
+      "likeCount": 55,
+      "postCaption": "Ipsa quas quod.",
+      "commentCount": 80,
+      "postCreationDate": 1591091160201
+    },
+    {
+      "username": "Alyson",
+      "profileImageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "postMediaUrl": "https://images.unsplash.com/photo-1548661710-7f540c9c56d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+      "isLiked": true,
+      "isSaved": true,
+      "likeCount": 1,
+      "postCaption": "Eaque labore sit omnis fuga corrupti reprehenderit unde nihil.",
+      "commentCount": 5,
+      "postCreationDate": 1591091160201
+    },
+    {
+      "username": "Wallace",
+      "profileImageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "postMediaUrl": "https://images.unsplash.com/photo-1547244691-fc0b94515b69?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "isLiked": true,
+      "isSaved": true,
+      "likeCount": 11,
+      "postCaption": "Dolores aliquam corrupti repellat quis ut est excepturi qui nihil.",
+      "commentCount": 80,
+      "postCreationDate": 1591091160201
+    },
+    {
+      "username": "Danny",
+      "profileImageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "postMediaUrl": "https://images.unsplash.com/photo-1500485035595-cbe6f645feb1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "isLiked": false,
+      "isSaved": true,
+      "likeCount": 78,
+      "postCaption": "Expedita saepe rerum qui sit officia expedita optio commodi.",
+      "commentCount": 88,
+      "postCreationDate": 1591091160201
+    },
+    {
+      "username": "Breana",
+      "profileImageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "postMediaUrl": "https://images.unsplash.com/photo-1518802508264-76256089cddb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "isLiked": true,
+      "isSaved": false,
+      "likeCount": 11,
+      "postCaption": "Delectus nobis mollitia iste voluptatum laudantium doloremque qui quasi iure.",
+      "commentCount": 95,
+      "postCreationDate": 1591091160201
+    },
+    {
+      "username": "Shemar",
+      "profileImageUrl": "https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=656&q=80",
+      "postMediaUrl": "https://images.unsplash.com/photo-1524235325756-750277bf9ac6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "isLiked": true,
+      "isSaved": false,
+      "likeCount": 100,
+      "postCaption": "Life is about living and not looking for future",
+      "commentCount": 80,
+      "postCreationDate": 1591091160201
+    },
+    {
+      "username": "Bennett",
+      "profileImageUrl": "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "postMediaUrl": "https://images.unsplash.com/photo-1527838700789-f9b453e73655?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=619&q=80",
+      "isLiked": true,
+      "isSaved": false,
+      "likeCount": 100,
+      "postCaption": "Life is about living and not looking for future",
+      "commentCount": 80,
+      "postCreationDate": 1591091160201
+    }
+  ]
+}
