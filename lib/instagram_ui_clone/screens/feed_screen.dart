@@ -4,6 +4,7 @@ import 'package:flutter_example/instagram_ui_clone/data/models/post.dart';
 import 'package:flutter_example/instagram_ui_clone/data/models/story.dart';
 import 'package:flutter_example/instagram_ui_clone/widgets/insta_app_bar.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class FeedScreen extends StatelessWidget {
   final Future<List<Story>> futureListOfStory;
@@ -19,6 +20,27 @@ class FeedScreen extends StatelessWidget {
     return Scaffold(
       appBar: InstaAppBar(
         height: 65,
+        leading: IconButton(
+          icon: Icon(
+            Feather.camera,
+            color: Colors.white,
+          ),
+          onPressed: () {},
+        ),
+        center: Text(
+          'Instagram',
+          style: GoogleFonts.cookie(
+            color: Colors.white,
+            fontSize: 36,
+          ),
+        ),
+        trailing: IconButton(
+          icon: Icon(
+            Feather.send,
+            color: Colors.white,
+          ),
+          onPressed: () {},
+        ),
       ),
       body: Container(
         height: MediaQuery.of(context).size.height,
