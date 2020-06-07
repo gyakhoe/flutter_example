@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_example/instagram_ui_clone/screens/home_screen.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter_statusbar_manager/flutter_statusbar_manager.dart';
 
