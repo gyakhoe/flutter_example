@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class InstaAppBar extends StatelessWidget implements PreferredSizeWidget {
   final double height;
+  final bool isProfileScreen;
+  final Widget leading;
+  final Widget center;
+  final Widget trailing;
+  final Color backgroundColor;
+
   const InstaAppBar({
     Key key,
     @required this.height,
+    this.leading,
+    @required this.center,
+    this.trailing,
+    this.isProfileScreen = false,
+    this.backgroundColor,
   }) : super(key: key);
 
   @override
@@ -14,31 +23,32 @@ class InstaAppBar extends StatelessWidget implements PreferredSizeWidget {
     return Container(
       height: height,
       padding: EdgeInsets.only(top: 20),
-      color: Theme.of(context).primaryColor,
+      color: backgroundColor == null
+          ? Theme.of(context).primaryColor
+          : backgroundColor,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          IconButton(
-            icon: Icon(
-              Feather.camera,
-              color: Colors.white,
-            ),
-            onPressed: () {},
+          Expanded(
+            child: isProfileScreen
+                ? Container()
+                : Align(
+                    alignment: Alignment.centerLeft,
+                    child: leading,
+                  ),
           ),
-          Text(
-            'Instagram',
-            style: GoogleFonts.cookie(
-              color: Colors.white,
-              fontSize: 36,
+          Expanded(
+            child: Center(
+              child: center,
             ),
           ),
-          IconButton(
-            icon: Icon(
-              Feather.send,
-              color: Colors.white,
+          Expanded(
+            child: Align(
+              alignment: Alignment.centerRight,
+              child: trailing,
             ),
-            onPressed: () {},
           ),
         ],
       ),
