@@ -1,3 +1,5 @@
+import 'dart:math';
+
 class Utils {
   static String getTimeDifference(DateTime dateToCompare) {
     Duration difference = DateTime.now().difference(dateToCompare);
@@ -21,6 +23,11 @@ class Utils {
     } else {
       return '${days % 30} months ago';
     }
+  }
+
+  static String getRandomImageUrl() {
+    int randomNumber = Random().nextInt(40);
+    return listOfImageUrl.elementAt(randomNumber);
   }
 
   static const List<String> listOfImageUrl = [
