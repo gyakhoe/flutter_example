@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_example/instagram_ui_clone/common/utils.dart';
+import 'package:flutter_example/instagram_ui_clone/screens/profile_tab_screen.dart';
 import 'package:flutter_example/instagram_ui_clone/widgets/insta_app_bar.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 
@@ -38,126 +39,137 @@ class ProfileScreen extends StatelessWidget {
           onPressed: () {},
         ),
       ),
-      body: Container(
-        padding: const EdgeInsets.only(left: 10, right: 10),
-        color: Theme.of(context).primaryColor,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Container(
-              height: 100,
-              child: Row(
-                children: <Widget>[
-                  Container(
-                    width: 100,
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: _profileAvatar(
-                        height: 100,
-                        width: 100,
+      body: SingleChildScrollView(
+        physics: ClampingScrollPhysics(),
+        child: Container(
+          color: Theme.of(context).primaryColor,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                padding: const EdgeInsets.only(left: 10, right: 10),
+                height: 100,
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      width: 100,
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: _profileAvatar(
+                          height: 100,
+                          width: 100,
+                        ),
                       ),
                     ),
-                  ),
-                  Container(
-                    width: _screen.width - 100 - 20,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        _statsBox(count: '57', title: 'Posts'),
-                        _statsBox(count: '185', title: 'Followers'),
-                        _statsBox(count: '241', title: 'Following'),
-                      ],
+                    Container(
+                      width: _screen.width - 100 - 20,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          _statsBox(count: '57', title: 'Posts'),
+                          _statsBox(count: '185', title: 'Followers'),
+                          _statsBox(count: '241', title: 'Following'),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            Container(
-              height: 100,
-              padding: EdgeInsets.only(top: 10),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    'GS',
+              Container(
+                height: 100,
+                padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      'GS',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                    RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(text: 'All photos are '),
+                          TextSpan(
+                            text: '#shotoniphone ',
+                            style: TextStyle(
+                              color: Colors.pinkAccent,
+                            ),
+                          ),
+                          TextSpan(
+                            text:
+                                'unless stated otherwise. NTS-\"Have teh courage to follow your heart and intuation.\" ',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                          TextSpan(
+                              text: '#100daysofcode #flutterdeveloper',
+                              style: TextStyle(
+                                color: Colors.pinkAccent,
+                              ))
+                        ],
+                      ),
+                    ),
+                    Text(
+                      'gyakhoe.com',
+                      style: TextStyle(
+                        color: Colors.pinkAccent,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 10, right: 10),
+                child: Container(
+                  height: 35,
+                  margin: EdgeInsets.symmetric(vertical: 10),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey[500]),
+                    borderRadius: BorderRadius.circular(5),
+                    color: Theme.of(context).primaryColorDark,
+                  ),
+                  child: Center(
+                      child: Text(
+                    'Edit Profile',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),
-                  ),
-                  RichText(
-                    text: TextSpan(
-                      children: [
-                        TextSpan(text: 'All photos are '),
-                        TextSpan(
-                          text: '#shotoniphone ',
-                          style: TextStyle(
-                            color: Colors.pinkAccent,
-                          ),
-                        ),
-                        TextSpan(
-                          text:
-                              'unless stated otherwise. NTS-\"Have teh courage to follow your heart and intuation.\" ',
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                        TextSpan(
-                            text: '#100daysofcode #flutterdeveloper',
-                            style: TextStyle(
-                              color: Colors.pinkAccent,
-                            ))
-                      ],
-                    ),
-                  ),
-                  Text(
-                    'gyakhoe.com',
-                    style: TextStyle(
-                      color: Colors.pinkAccent,
-                    ),
-                  ),
-                ],
+                  )),
+                ),
               ),
-            ),
-            Container(
-              height: 35,
-              margin: EdgeInsets.symmetric(vertical: 10),
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey[500]),
-                borderRadius: BorderRadius.circular(5),
-                color: Theme.of(context).primaryColorDark,
+              Padding(
+                padding: const EdgeInsets.only(left: 10, right: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      'Story Highligts',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Icon(
+                      Icons.keyboard_arrow_down,
+                      color: Colors.white,
+                    ),
+                  ],
+                ),
               ),
-              child: Center(
-                  child: Text(
-                'Edit Profile',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              )),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text(
-                  'Story Highligts',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Icon(
-                  Icons.keyboard_arrow_down,
-                  color: Colors.white,
-                ),
-              ],
-            ),
-            Divider(
-              color: Colors.grey[600],
-            ),
-          ],
+              Divider(
+                color: Colors.grey[600],
+                height: 1,
+              ),
+              ProfileTabScreen(),
+            ],
+          ),
         ),
       ),
     );
