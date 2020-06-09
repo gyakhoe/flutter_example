@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 
-class ProfileTabBar extends StatefulWidget {
+class ProfileTabBar extends StatefulWidget implements PreferredSizeWidget {
   final double height;
   final ValueChanged<int> onTap;
 
@@ -13,6 +13,9 @@ class ProfileTabBar extends StatefulWidget {
 
   @override
   _ProfileTabBarState createState() => _ProfileTabBarState();
+
+  @override
+  Size get preferredSize => Size.fromHeight(height);
 }
 
 class _ProfileTabBarState extends State<ProfileTabBar> {
@@ -28,21 +31,20 @@ class _ProfileTabBarState extends State<ProfileTabBar> {
     double _screenWidth = MediaQuery.of(context).size.width;
     return Container(
       height: widget.height,
-      color: Colors.green,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
           GestureDetector(
               child: Container(
+                color: Theme.of(context).primaryColor,
                 width: _screenWidth / 3,
                 height: widget.height,
-                color: Colors.amber,
                 child: Stack(
                   children: <Widget>[
                     Align(
                       child: Icon(
                         Icons.grid_on,
-                        color: isTv ? _selectedColor : _unSelectedColor,
+                        color: isPost ? _selectedColor : _unSelectedColor,
                       ),
                     ),
                     isPost
@@ -67,9 +69,9 @@ class _ProfileTabBarState extends State<ProfileTabBar> {
               }),
           GestureDetector(
             child: Container(
+              color: Theme.of(context).primaryColor,
               width: _screenWidth / 3,
               height: widget.height,
-              color: Colors.pinkAccent,
               child: Stack(
                 children: <Widget>[
                   Align(
@@ -101,9 +103,9 @@ class _ProfileTabBarState extends State<ProfileTabBar> {
           ),
           GestureDetector(
             child: Container(
+              color: Theme.of(context).primaryColor,
               width: _screenWidth / 3,
               height: widget.height,
-              color: Colors.teal,
               child: Stack(
                 children: <Widget>[
                   Align(

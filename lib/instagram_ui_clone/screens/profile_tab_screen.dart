@@ -3,7 +3,8 @@ import 'package:flutter_example/instagram_ui_clone/common/utils.dart';
 import 'package:flutter_example/instagram_ui_clone/widgets/profile_tab_bar.dart';
 
 class ProfileTabScreen extends StatefulWidget {
-  ProfileTabScreen({Key key}) : super(key: key);
+  final ScrollController gridController;
+  ProfileTabScreen({Key key, this.gridController}) : super(key: key);
 
   @override
   _ProfileTabScreenState createState() => _ProfileTabScreenState();
@@ -15,7 +16,7 @@ class _ProfileTabScreenState extends State<ProfileTabScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height - 120,
+      height: MediaQuery.of(context).size.height - 115,
       width: MediaQuery.of(context).size.width,
       color: Colors.pink,
       child: Column(
@@ -41,6 +42,7 @@ class _ProfileTabScreenState extends State<ProfileTabScreen> {
   Widget _tabScreens(BuildContext context, int index) {
     var _gridPages = [
       GridView.count(
+          controller: widget.gridController,
           crossAxisCount: 3,
           shrinkWrap: true,
           children: List.generate(

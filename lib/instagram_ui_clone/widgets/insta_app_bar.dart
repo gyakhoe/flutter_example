@@ -22,7 +22,6 @@ class InstaAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return Container(
       height: height,
-      padding: EdgeInsets.only(top: 20),
       color: backgroundColor == null
           ? Theme.of(context).primaryColor
           : backgroundColor,
