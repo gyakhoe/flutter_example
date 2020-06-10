@@ -7,6 +7,7 @@ import 'package:flutter_example/instagram_ui_clone/screens/add_post_screen.dart'
 import 'package:flutter_example/instagram_ui_clone/screens/explore_screen.dart';
 import 'package:flutter_example/instagram_ui_clone/screens/feed_screen.dart';
 import 'package:flutter_example/instagram_ui_clone/screens/profile_screen_sliver.dart';
+import 'package:flutter_example/instagram_ui_clone/screens/profile_screen_v1.dart';
 import 'package:flutter_statusbar_manager/flutter_statusbar_manager.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -38,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ExploreScreen(),
       AddPostScreen(),
       ActivityScreen(),
-      ProfileScreenSliver(),
+      ProfileScreenV1(),
     ];
 
     return Scaffold(

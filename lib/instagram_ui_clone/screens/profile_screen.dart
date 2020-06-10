@@ -12,7 +12,7 @@ class ProfileScreen extends StatelessWidget {
     Size _screen = MediaQuery.of(context).size;
     return Scaffold(
       appBar: InstaAppBar(
-        height: 65,
+        height: 55,
         isProfileScreen: true,
         center: Row(
           mainAxisAlignment: MainAxisAlignment.center,
