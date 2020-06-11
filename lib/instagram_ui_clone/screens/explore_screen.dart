@@ -8,11 +8,12 @@ class ExploreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size _screen = MediaQuery.of(context).size;
     return Scaffold(
       appBar: ExploreAppBar(height: 108),
       body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
+        height: _screen.height,
+        width: _screen.width,
         color: Theme.of(context).primaryColorDark,
         child: StaggeredGridView.countBuilder(
           crossAxisCount: 4,

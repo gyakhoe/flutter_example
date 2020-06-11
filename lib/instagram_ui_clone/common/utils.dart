@@ -30,6 +30,19 @@ class Utils {
     return listOfImageUrl.elementAt(randomNumber);
   }
 
+  static String formattedLikedUserNames(List<String> listOfUser) {
+    if (listOfUser.length > 2) {
+      return '${listOfUser.elementAt(0)}, ${listOfUser.elementAt(1)} and ${listOfUser.length - 2} others';
+    }
+    String usernames = '';
+    for (String username in listOfUser) {
+      usernames = usernames + username + " ,";
+    }
+
+    usernames = usernames.substring(0, usernames.length - 1);
+    return usernames;
+  }
+
   static const List<String> listOfImageUrl = [
     'https://images.unsplash.com/photo-1568967729548-e3dbad3d37e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
     'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',

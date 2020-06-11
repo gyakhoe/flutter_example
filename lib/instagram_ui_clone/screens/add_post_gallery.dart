@@ -21,10 +21,11 @@ class AddPostGallery extends StatelessWidget {
   Widget build(BuildContext context) {
     _gridScrollController.addListener(_gridListener);
     _singleChildController.addListener(_gridListener);
+    Size _screen = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
+        height: _screen.height,
+        width: _screen.width,
         color: Theme.of(context).primaryColorDark,
         child: SingleChildScrollView(
           controller: _singleChildController,
@@ -53,7 +54,7 @@ class AddPostGallery extends StatelessWidget {
                           children: <Widget>[
                             _circularStackButton(icon: FontAwesome.expand),
                             Container(
-                              width: MediaQuery.of(context).size.width / 1.6,
+                              width: _screen.width / 1.6,
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
@@ -75,7 +76,7 @@ class AddPostGallery extends StatelessWidget {
                 ),
               ),
               Container(
-                height: MediaQuery.of(context).size.height - 90,
+                height: _screen.height - 90,
                 child: GridView.count(
                   controller: _gridScrollController,
                   shrinkWrap: true,
