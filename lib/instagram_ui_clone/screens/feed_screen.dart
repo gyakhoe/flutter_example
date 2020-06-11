@@ -17,6 +17,7 @@ class FeedScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size _screen = MediaQuery.of(context).size;
     return Scaffold(
       appBar: InstaAppBar(
         height: 65,
@@ -43,8 +44,8 @@ class FeedScreen extends StatelessWidget {
         ),
       ),
       body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
+        height: _screen.height,
+        width: _screen.width,
         color: Theme.of(context).primaryColorDark,
         child: ListView.builder(
           shrinkWrap: true,

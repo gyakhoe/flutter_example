@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_example/instagram_ui_clone/common/utils.dart';
 import 'package:flutter_example/instagram_ui_clone/widgets/add_post_app_bar.dart';
-import 'package:flutter_icons/flutter_icons.dart';
+import 'package:flutter_example/instagram_ui_clone/widgets/add_post_camera_button.dart';
 
 class AddPostVideo extends StatelessWidget {
   const AddPostVideo({Key key}) : super(key: key);
@@ -27,7 +27,7 @@ class AddPostVideo extends StatelessWidget {
                     image: NetworkImage(Utils.listOfImageUrl.elementAt(15)),
                     fit: BoxFit.cover,
                   ),
-                  _cameraOptions(),
+                  cameraOptions(),
                 ],
               ),
             ),
@@ -61,32 +61,6 @@ class AddPostVideo extends StatelessWidget {
                 ],
               ),
             ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _cameraOptions() {
-    return Align(
-      alignment: Alignment.bottomCenter,
-      child: Container(
-        height: 60,
-        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Icon(
-              Feather.rotate_ccw,
-              color: Colors.white,
-              size: 30,
-            ),
-            Icon(
-              Ionicons.ios_flash,
-              color: Colors.white,
-              size: 30,
-            )
           ],
         ),
       ),

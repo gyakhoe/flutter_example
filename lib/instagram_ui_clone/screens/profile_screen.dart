@@ -1,18 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_example/instagram_ui_clone/common/utils.dart';
-import 'package:flutter_example/instagram_ui_clone/screens/profile_tab_screen.dart';
 import 'package:flutter_example/instagram_ui_clone/widgets/insta_app_bar.dart';
+import 'package:flutter_example/instagram_ui_clone/widgets/profile_tab_bar.dart';
+import 'package:flutter_example/instagram_ui_clone/widgets/profile_widgets.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key key}) : super(key: key);
 
   @override
+  _ProfileScreenState createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  int _pageIndex = 0;
+  @override
   Widget build(BuildContext context) {
-    Size _screen = MediaQuery.of(context).size;
+    var _screen = MediaQuery.of(context).size;
+    var _primaryColor = Theme.of(context).primaryColor;
+    var _primaryColorDark = Theme.of(context).primaryColorDark;
     return Scaffold(
       appBar: InstaAppBar(
-        height: 55,
+        height: 60,
         isProfileScreen: true,
         center: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -40,203 +50,55 @@ class ProfileScreen extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
-        physics: ClampingScrollPhysics(),
-        child: Container(
-          color: Theme.of(context).primaryColor,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Container(
-                padding: const EdgeInsets.only(left: 10, right: 10),
-                height: 100,
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      width: 100,
-                      child: Align(
-                        alignment: Alignment.centerLeft,
-                        child: _profileAvatar(
-                          height: 100,
-                          width: 100,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: _screen.width - 100 - 20,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          _statsBox(count: '57', title: 'Posts'),
-                          _statsBox(count: '185', title: 'Followers'),
-                          _statsBox(count: '241', title: 'Following'),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                height: 100,
-                padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      'GS',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
-                    RichText(
-                      text: TextSpan(
-                        children: [
-                          TextSpan(text: 'All photos are '),
-                          TextSpan(
-                            text: '#shotoniphone ',
-                            style: TextStyle(
-                              color: Colors.pinkAccent,
-                            ),
-                          ),
-                          TextSpan(
-                            text:
-                                'unless stated otherwise. NTS-\"Have teh courage to follow your heart and intuation.\" ',
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
-                          TextSpan(
-                              text: '#100daysofcode #flutterdeveloper',
-                              style: TextStyle(
-                                color: Colors.pinkAccent,
-                              ))
-                        ],
-                      ),
-                    ),
-                    Text(
-                      'gyakhoe.com',
-                      style: TextStyle(
-                        color: Colors.pinkAccent,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 10, right: 10),
-                child: Container(
-                  height: 35,
-                  margin: EdgeInsets.symmetric(vertical: 10),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey[500]),
-                    borderRadius: BorderRadius.circular(5),
-                    color: Theme.of(context).primaryColorDark,
-                  ),
-                  child: Center(
-                      child: Text(
-                    'Edit Profile',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  )),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 10, right: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text(
-                      'Story Highligts',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Icon(
-                      Icons.keyboard_arrow_down,
-                      color: Colors.white,
-                    ),
-                  ],
-                ),
-              ),
-              Divider(
-                color: Colors.grey[600],
-                height: 1,
-              ),
-              ProfileTabScreen(),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _statsBox({
-    @required String count,
-    @required String title,
-  }) {
-    return Container(
-      height: 98,
-      width: 80,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Text(
-            count,
-            style: TextStyle(
-                fontSize: 18, color: Colors.white, fontWeight: FontWeight.bold),
-          ),
-          Text(
-            title,
-            style: TextStyle(fontSize: 14, color: Colors.white),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _profileAvatar({
-    @required double height,
-    @required double width,
-    bool isStorySeen = false,
-  }) {
-    return Container(
-      height: height, //155,
-      width: width, //155,
-      child: Center(
-        child: Stack(
-          children: [
-            Align(
-              alignment: Alignment.center,
-              child: Container(
-                height: height, // 150,
-                width: width, //150,
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: isStorySeen ? Colors.grey[500] : Colors.red,
-                      width: 3,
-                    )),
-              ),
+        child: Column(
+          children: <Widget>[
+            profileStats(screen: _screen, color: _primaryColor),
+            bio(primaryColor: _primaryColor),
+            editProfile(
+              primaryColorDark: _primaryColorDark,
+              primaryColor: _primaryColor,
             ),
-            Align(
-              alignment: Alignment.center,
-              child: Container(
-                height: height - 10, //140,
-                width: width - 10, //140,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  shape: BoxShape.circle,
-                ),
-                child: CircleAvatar(
-                  backgroundImage: NetworkImage(Utils.getRandomImageUrl()),
-                ),
-              ),
+            storyHighlight(primaryColor: _primaryColor),
+            Divider(
+              height: 1,
+              color: Colors.grey[500],
+            ),
+            ProfileTabBar(
+              height: 46,
+              onTap: (value) {
+                setState(() {
+                  _pageIndex = value;
+                });
+              },
+            ),
+            StaggeredGridView.countBuilder(
+              physics: NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              crossAxisCount: _pageIndex != 1 ? 3 : 2,
+              itemCount: Utils.listOfImageUrl.length,
+              itemBuilder: (contex, index) {
+                return Container(
+                  padding:
+                      _pageIndex == 1 ? EdgeInsets.all(5) : EdgeInsets.all(0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: _pageIndex == 1
+                        ? BorderRadius.circular(15)
+                        : BorderRadius.circular(0),
+                    child: Image(
+                      fit: BoxFit.cover,
+                      image:
+                          NetworkImage(Utils.listOfImageUrl.elementAt(index)),
+                    ),
+                  ),
+                );
+              },
+              staggeredTileBuilder: (index) => StaggeredTile.count(
+                  _pageIndex != 1 ? 1 : 1, _pageIndex != 1 ? 1 : 1.5),
+              crossAxisSpacing: 2,
+              mainAxisSpacing: 2,
             ),
           ],
         ),
